@@ -8,6 +8,7 @@ fn main() {
     for stream in server.incoming() {
         spawn(move || {
             let mut websocket = accept(stream.unwrap()).unwrap();
+
             loop {
                 let msg = websocket.read_message().unwrap();
 
